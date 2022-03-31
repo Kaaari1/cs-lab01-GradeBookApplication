@@ -42,9 +42,9 @@ namespace GradeBook.UserInterfaces
             }
             var name = parts[1];
             var type = parts[2];
-            BaseGradeBook gradeBook;
             var isWeighted = bool.Parse(parts[3]);
-            if(type == "standard")
+            BaseGradeBook gradeBook;
+            if (type == "standard")
             { 
                 gradeBook = new StandardGradeBook(name, isWeighted);
             }
