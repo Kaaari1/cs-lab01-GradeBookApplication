@@ -11,11 +11,36 @@ namespace GradeBook.GradeBooks
         {
             Type = GradeBookType.Ranked;
         }
-      /*  public override char GetLetterGrade(double averageGrade)
+       public override char GetLetterGrade(double averageGrade)
         {
+            var l = 0;
+            foreach(var student in Students)
+            {
+                if(averageGrade > student.AverageGrade)
+                {
+                    l++;
+                }
+            }
             if (Students.Count < 5)
+            {
                 throw new InvalidOperationException("Ranked grading requires 5 or more students.");
-        }*/
+            } else if(l >= 0.8 * Students.Count)
+            {
+                return 'A';
+            } else if(l >= 0.6 * Students.Count)
+            {
+                return 'B';
+            }else if (l >= 0.4 * Students.Count)
+            {
+                return 'C';
+            }else if (l >= 0.2 * Students.Count)
+            {
+                return 'D';
+            }else
+            {
+                return 'F';
+            }
+        }
         public override void CalculateStatistics()
         {
             if(Students.Count < 5)
